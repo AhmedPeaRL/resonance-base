@@ -61,3 +61,30 @@ body, html, #root, .App {
 .mute-btn:hover {
   background: rgba(0, 255, 255, 0.4);
 }
+@keyframes softGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+  }
+}
+
+.glow-layer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-left: -200px;
+  margin-top: -200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.15), transparent 70%);
+  animation: softGlow 4s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.3s ease;
+}
