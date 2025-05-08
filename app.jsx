@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 function App() {
   const canvasRef = useRef(null);
+  const audioRef = useRef(null);
   const ripples = useRef([]);
+  const [isMuted, setIsMuted] = useState(false);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -67,15 +69,25 @@ function App() {
     };
   }, []);
 
+  const toggleMute = () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    audio.muted = !audio.muted;
+    setIsMuted(audio.muted);
+  };
+
   return (
     <div className="App">
       <canvas ref={canvasRef} className="ripple-canvas" />
       <div className="content">
         <h1 className="resonance-text">Resonance</h1>
+        <button className="mute-btn" onClick={toggleMute}>
+          {isMuted ? "🔇 Mute Off" : "🔊 Mute On"}
+        </button>
       </div>
-      <audio autoPlay loop>
+      <audio ref={audioRef} autoPlay loop>
         <source
-          src="https://cdn.pixabay.com/audio/2022/03/15/audio_3fd51f929c.mp3"
+          src="https://cdn.pixabay.com/audio/2023/05/09/audio_b030db315d.mp3"
           type="audio/mpeg"
         />
       </audio>
