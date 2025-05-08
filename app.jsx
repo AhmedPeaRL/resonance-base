@@ -81,7 +81,8 @@ function App() {
   <div className="glow-layer" />
 
       <canvas ref={canvasRef} className="ripple-canvas" />
-      <div className="content">
+     <div className="glow-layer" />
+  <div className="content">
         <h1 className="resonance-text">Resonance</h1>
         <button className="mute-btn" onClick={toggleMute}>
           {isMuted ? "🔇 Mute Off" : "🔊 Mute On"}
