@@ -43,3 +43,21 @@ body, html, #root, .App {
     text-shadow: 0 0 10px cyan, 0 0 20px cyan;
   }
 }
+.mute-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 255, 255, 0.2);
+  border: 1px solid cyan;
+  padding: 10px 15px;
+  color: white;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  z-index: 3;
+  transition: background 0.3s;
+}
+
+.mute-btn:hover {
+  background: rgba(0, 255, 255, 0.4);
+}
