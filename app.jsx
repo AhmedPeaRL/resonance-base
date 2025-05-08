@@ -78,6 +78,8 @@ function App() {
 
   return (
     <div className="App">
+  <div className="glow-layer" />
+
       <canvas ref={canvasRef} className="ripple-canvas" />
       <div className="content">
         <h1 className="resonance-text">Resonance</h1>
