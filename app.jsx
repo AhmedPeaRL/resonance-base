@@ -2,7 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
 
 function App() {
-  const canvasRef = useRef(null);
+ const [resonanceLevel, setResonanceLevel] = useState(0);
+ const canvasRef = useRef(null);
   const audioRef = useRef(null);
   const ripples = useRef([]);
   const [isMuted, setIsMuted] = useState(false);
@@ -78,7 +79,8 @@ function App() {
 
   return (
     <div className="App">
-  <div className="glow-layer" />
+ <div className={`background resonance-${resonanceLevel}`}>
+ <div className="glow-layer" />
 
       <canvas ref={canvasRef} className="ripple-canvas" />
      <div className="glow-layer" />
@@ -100,12 +102,17 @@ function App() {
 const [presenceTime, setPresenceTime] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
-      setPresenceTime(prev => prev + 1);
-    }, 1000); // كل ثانية
-
-    return () => clearInterval(interval);
-  }, []);
+  const interval = setInterval(() => {
+    setPresenceTime(prev => {
+      const newTime = prev + 1;
+      if (newTime % 60 === 0) {
+        setResonanceLevel(r => Math.min(r + 1, 5)); // max 5 levels
+      }
+      return newTime;
+    });
+  }, 1000);
+  return () => clearInterval(interval);
+}, []);
 
   return (
     <div className="app">
