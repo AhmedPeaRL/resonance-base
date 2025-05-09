@@ -96,7 +96,20 @@ function App() {
           type="audio/mpeg"
         />
       </audio>
-    </div>
+   <button
+  onClick={() => {
+    const audio = document.getElementById("resonance-audio");
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }}
+  className="sound-toggle"
+>
+  🔊
+</button>
+ </div>
   );
 }
 const [presenceTime, setPresenceTime] = useState(0);
