@@ -1,3 +1,35 @@
+import React from 'react';
+import './PulseEffect.css'; // ✅ تأكد إنك أضفته
+
+function App() {
+  const handleClick = (e) => {
+    const pulse = document.createElement('div');
+    pulse.className = 'pulse';
+    pulse.style.left = `${e.clientX}px`;
+    pulse.style.top = `${e.clientY}px`;
+    document.body.appendChild(pulse);
+
+    setTimeout(() => {
+      pulse.remove();
+    }, 800); // مدة الأنيميشن
+  };
+
+  return (
+    <div
+      onClick={handleClick}
+      style={{
+        width: '100vw',
+        height: '100vh',
+        background: '#0a0a0a',
+        overflow: 'hidden',
+        cursor: 'pointer',
+      }}
+    >
+    </div>
+  );
+}
+
+export default App;
 import React, { useState, useEffect } from "react";
 import "./App.css";
 
