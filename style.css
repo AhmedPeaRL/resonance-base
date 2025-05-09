@@ -1,192 +1,21 @@
-body, html, #root, .App {
+body, html {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
-  background: black;
-}
-
-.ripple-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: 0;
-}
-
-.content {
-  position: relative;
-  z-index: 2;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.resonance-text {
-  color: cyan;
-  font-size: 3.5rem;
+  background-color: black;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  animation: glow 3s infinite ease-in-out;
-  text-align: center;
 }
 
-@keyframes glow {
-  0% {
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
-  }
-  50% {
-    text-shadow: 0 0 30px cyan, 0 0 50px white;
-  }
-  100% {
-    text-shadow: 0 0 10px cyan, 0 0 20px cyan;
-  }
-}
-.mute-btn {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  background: rgba(0, 255, 255, 0.2);
-  border: 1px solid cyan;
-  padding: 10px 15px;
-  color: white;
-  border-radius: 10px;
-  font-size: 1rem;
-  cursor: pointer;
-  z-index: 3;
-  transition: background 0.3s;
-}
-
-.mute-btn:hover {
-  background: rgba(0, 255, 255, 0.4);
-}
-@keyframes softGlow {
-  0% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-  }
-  50% {
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5);
-  }
-  100% {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-  }
-}
-
-.glow-layer {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  height: 400px;
-  margin-left: -200px;
-  margin-top: -200px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,255,255,0.15), transparent 70%);
-  animation: softGlow 4s ease-in-out infinite;
-  z-index: 1;
-  pointer-events: none;
-  transition: transform 0.3s ease;
-}
-.app {
-  height: 100vh;
-  background: radial-gradient(ellipse at center, #0f0f1f 0%, #000000 100%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-  position: relative;
-}
-
-.main-text {
-  color: white;
-  font-size: 2.5rem;
-  position: relative;
-  z-index: 10;
-}
-
-.background {
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-}
-
-.aura {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  border-radius: 50%;
-  opacity: 0;
-  transition: opacity 2s ease, transform 4s ease;
-  pointer-events: none;
-}
-
-.aura-1 {
-  width: 200px;
-  height: 200px;
-  background: rgba(0, 255, 255, 0.1);
-}
-
-.aura-2 {
-  width: 350px;
-  height: 350px;
-  background: rgba(0, 128, 255, 0.08);
-}
-
-.aura-3 {
-  width: 500px;
-  height: 500px;
-  background: rgba(128, 0, 255, 0.05);
-}
-
-.visible {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.1);
-}
-.ripple {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  background: rgba(0, 255, 255, 0.2);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0.2);
-  animation: ripple-anim 0.8s ease-out forwards;
-  pointer-events: none;
-  z-index: 2;
-}
-
-@keyframes ripple-anim {
-  to {
-    transform: translate(-50%, -50%) scale(1.5);
-    opacity: 0;
-  }
-}
-.background {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at center, #0ff, #003);
-  transition: box-shadow 1s ease;
-  z-index: -1;
-}
-
-/* مستويات التوهج */
-.resonance-0 { box-shadow: 0 0 0px #0ff3; }
-.resonance-1 { box-shadow: 0 0 20px #0ff5; }
-.resonance-2 { box-shadow: 0 0 40px #0ff6; }
-.resonance-3 { box-shadow: 0 0 60px #0ff7; }
-.resonance-4 { box-shadow: 0 0 80px #0ff8; }
-.resonance-5 { box-shadow: 0 0 100px #0ff9; }
 .background {
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: radial-gradient(circle, #0d0d0d, #000000);
+  background: radial-gradient(circle at center, #101010, #000000);
   transition: all 0.5s ease-in-out;
 }
 
+/* توهج متدرج حسب مستوى الرنين */
 .resonance-1 {
   box-shadow: 0 0 30px 10px rgba(0, 200, 255, 0.1);
 }
@@ -209,7 +38,7 @@ body, html, #root, .App {
     opacity: 1;
   }
   50% {
-    transform: scale(1.03);
+    transform: scale(1.02);
     opacity: 0.9;
   }
   100% {
@@ -217,6 +46,27 @@ body, html, #root, .App {
     opacity: 1;
   }
 }
+
+.container {
+  position: relative;
+  z-index: 2;
+  color: white;
+  text-align: center;
+  padding-top: 20vh;
+}
+
+.title {
+  font-size: 3rem;
+  text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  margin-top: 10px;
+}
+
+/* زر التحكم في الصوت */
 .sound-toggle {
   position: fixed;
   bottom: 20px;
