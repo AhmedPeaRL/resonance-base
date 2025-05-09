@@ -116,7 +116,8 @@ const [presenceTime, setPresenceTime] = useState(0);
 
   return (
     <div className="app">
-      <div className="background">
+      <div className={`background resonance-${resonanceLevel}`}>
+
        {ripples.map(ripple => (
   <div
     key={ripple.id}
