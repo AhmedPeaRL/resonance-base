@@ -110,7 +110,17 @@ const [presenceTime, setPresenceTime] = useState(0);
   return (
     <div className="app">
       <div className="background">
-        <div className={`aura aura-1 ${presenceTime > 5 ? 'visible' : ''}`} />
+       {ripples.map(ripple => (
+  <div
+    key={ripple.id}
+    className="ripple"
+    style={{
+      left: ripple.x,
+      top: ripple.y,
+    }}
+  />
+))}
+ <div className={`aura aura-1 ${presenceTime > 5 ? 'visible' : ''}`} />
         <div className={`aura aura-2 ${presenceTime > 10 ? 'visible' : ''}`} />
         <div className={`aura aura-3 ${presenceTime > 20 ? 'visible' : ''}`} />
       </div>
@@ -118,4 +128,33 @@ const [presenceTime, setPresenceTime] = useState(0);
     </div>
   );
 }
+const [ripples, setRipples] = useState([]);
+
+const createRipple = (x, y) => {
+  const newRipple = {
+    id: Date.now(),
+    x,
+    y,
+  };
+  setRipples(prev => [...prev, newRipple]);
+  setTimeout(() => {
+    setRipples(prev => prev.filter(r => r.id !== newRipple.id));
+  }, 800); // ripple disappears after 0.8 sec
+};
+
+useEffect(() => {
+  const handleMove = (e) => {
+    const x = e.clientX || (e.touches && e.touches[0].clientX);
+    const y = e.clientY || (e.touches && e.touches[0].clientY);
+    if (x && y) createRipple(x, y);
+  };
+
+  window.addEventListener('mousemove', handleMove);
+  window.addEventListener('touchmove', handleMove);
+
+  return () => {
+    window.removeEventListener('mousemove', handleMove);
+    window.removeEventListener('touchmove', handleMove);
+  };
+}, []);
 export default App;
