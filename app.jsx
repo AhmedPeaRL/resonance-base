@@ -97,5 +97,25 @@ function App() {
     </div>
   );
 }
+const [presenceTime, setPresenceTime] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPresenceTime(prev => prev + 1);
+    }, 1000); // كل ثانية
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="app">
+      <div className="background">
+        <div className={`aura aura-1 ${presenceTime > 5 ? 'visible' : ''}`} />
+        <div className={`aura aura-2 ${presenceTime > 10 ? 'visible' : ''}`} />
+        <div className={`aura aura-3 ${presenceTime > 20 ? 'visible' : ''}`} />
+      </div>
+      <h1 className="main-text">Welcome to Core Resonance</h1>
+    </div>
+  );
+}
 export default App;
