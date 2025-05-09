@@ -88,3 +88,59 @@ body, html, #root, .App {
   pointer-events: none;
   transition: transform 0.3s ease;
 }
+.app {
+  height: 100vh;
+  background: radial-gradient(ellipse at center, #0f0f1f 0%, #000000 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.main-text {
+  color: white;
+  font-size: 2.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 2s ease, transform 4s ease;
+  pointer-events: none;
+}
+
+.aura-1 {
+  width: 200px;
+  height: 200px;
+  background: rgba(0, 255, 255, 0.1);
+}
+
+.aura-2 {
+  width: 350px;
+  height: 350px;
+  background: rgba(0, 128, 255, 0.08);
+}
+
+.aura-3 {
+  width: 500px;
+  height: 500px;
+  background: rgba(128, 0, 255, 0.05);
+}
+
+.visible {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
