@@ -144,3 +144,21 @@ body, html, #root, .App {
   opacity: 1;
   transform: translate(-50%, -50%) scale(1.1);
 }
+.ripple {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  background: rgba(0, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0.2);
+  animation: ripple-anim 0.8s ease-out forwards;
+  pointer-events: none;
+  z-index: 2;
+}
+
+@keyframes ripple-anim {
+  to {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
