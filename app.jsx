@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import "./PulseEffect.css"; // ✅ لتأثير النبضة
+import GlowTrail from './GlowTrail';
 
 function App() {
   const [resonanceLevel, setResonanceLevel] = useState(0);
@@ -28,7 +29,8 @@ function App() {
 
   return (
     <div className={`background resonance-${resonanceLevel}`}>
-      <div className="container">
+     <GlowTrail />
+ <div className="container">
         <h1 className="title">Resonance Base</h1>
         <p className="subtitle">
           Let your presence shape the space — harmonize in real-time.
