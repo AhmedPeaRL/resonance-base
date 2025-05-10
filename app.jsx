@@ -44,7 +44,6 @@ function App() {
 
   return (
     <div
-     <FloatingOrbs />
  onClick={handleClick}
       className={`background resonance-${resonanceLevel}`}
       style={{
@@ -66,7 +65,48 @@ function App() {
           autoPlay
           loop
         />
-        <button
+      return (
+  <div
+    onClick={handleClick}
+    className={`background resonance-${resonanceLevel}`}
+    style={{
+      width: "100vw",
+      height: "100vh",
+      overflow: "hidden",
+      background: "#0a0a0a",
+      cursor: "pointer",
+      position: "relative",
+    }}
+  >
+    <FloatingOrbs
+    <div className="container">
+      <h1 className="title">Resonance Base</h1>
+      <p className="subtitle">
+        Let your presence shape the space — harmonize in real-time.
+      </p>
+      <audio
+        id="resonance-audio"
+        src="https://cdn.pixabay.com/audio/2022/03/15/audio_3fd51f929c.mp3"
+        autoPlay
+        loop
+      />
+      <button
+        onClick={() => {
+          const audio = document.getElementById("resonance-audio");
+          if (audio.paused) {
+            audio.play();
+          } else {
+            audio.pause();
+          }
+        }}
+        className="sound-toggle"
+      >
+        🔊
+      </button>
+    </div>
+  </div>
+);
+  <button
           onClick={() => {
             const audio = document.getElementById("resonance-audio");
             if (audio.paused) {
