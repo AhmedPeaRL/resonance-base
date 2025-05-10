@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import FloatingOrbs from "./FloatingOrbs";
 import "./App.css";
 import "./PulseEffect.css";
 import "./EchoParticles.css"; //
@@ -43,7 +44,8 @@ function App() {
 
   return (
     <div
-      onClick={handleClick}
+     <FloatingOrbs />
+ onClick={handleClick}
       className={`background resonance-${resonanceLevel}`}
       style={{
         width: "100vw",
