@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import FloatingOrbs from "./FloatingOrbs";
+import GlowTrail from "./GlowTrail";
 import "./App.css";
 import "./PulseEffect.css";
-import "./EchoParticles.css"; //
+import "./EchoParticles.css";
 
 function App() {
   const [resonanceLevel, setResonanceLevel] = useState(0);
@@ -15,7 +16,7 @@ function App() {
       );
       setResonanceLevel(intensity);
 
-      // === Echo Particle ===
+      // === Echo Particle Effect ===
       const particle = document.createElement("div");
       particle.className = "particle";
       particle.style.left = `${e.clientX + (Math.random() * 40 - 20)}px`;
@@ -40,11 +41,16 @@ function App() {
     setTimeout(() => {
       pulse.remove();
     }, 800);
+
+    // Play Chime on Click
+    const audio = new Audio("/sounds/chime.mp3");
+    audio.volume = 0.3;
+    audio.play().catch((err) => console.log("Audio play error:", err));
   };
 
   return (
     <div
- onClick={handleClick}
+      onClick={handleClick}
       className={`background resonance-${resonanceLevel}`}
       style={{
         width: "100vw",
@@ -52,8 +58,12 @@ function App() {
         overflow: "hidden",
         background: "#0a0a0a",
         cursor: "pointer",
+        position: "relative",
       }}
     >
+      <FloatingOrbs />
+      <GlowTrail />
+
       <div className="container">
         <h1 className="title">Resonance Base</h1>
         <p className="subtitle">
@@ -65,48 +75,7 @@ function App() {
           autoPlay
           loop
         />
-      return (
-  <div
-    onClick={handleClick}
-    className={`background resonance-${resonanceLevel}`}
-    style={{
-      width: "100vw",
-      height: "100vh",
-      overflow: "hidden",
-      background: "#0a0a0a",
-      cursor: "pointer",
-      position: "relative",
-    }}
-  >
-    <FloatingOrbs
-    <div className="container">
-      <h1 className="title">Resonance Base</h1>
-      <p className="subtitle">
-        Let your presence shape the space — harmonize in real-time.
-      </p>
-      <audio
-        id="resonance-audio"
-        src="https://cdn.pixabay.com/audio/2022/03/15/audio_3fd51f929c.mp3"
-        autoPlay
-        loop
-      />
-      <button
-        onClick={() => {
-          const audio = document.getElementById("resonance-audio");
-          if (audio.paused) {
-            audio.play();
-          } else {
-            audio.pause();
-          }
-        }}
-        className="sound-toggle"
-      >
-        🔊
-      </button>
-    </div>
-  </div>
-);
-  <button
+        <button
           onClick={() => {
             const audio = document.getElementById("resonance-audio");
             if (audio.paused) {
