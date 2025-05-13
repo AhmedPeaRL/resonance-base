@@ -11,6 +11,7 @@ import FieldDistortion from "./FieldDistortion";
 import PhaseEchoes from "./PhaseEchoes";
 import useBreathRhythm from './useBreathRhythm';
 import './CoherenceBreath.css';
+import CoreHarmonics from './CoreHarmonics';
 
 function App() {
  const breathDuration = useBreathRhythm();
@@ -92,10 +93,11 @@ useEffect(() => {
 
 >
 
-      <FieldDistortion />
-      <PhaseEchoes />
-      <FloatingOrbs />
-      <GlowTrail />
+    <CoreHarmonics />
+    <FieldDistortion />
+    <PhaseEchoes />        
+    <FloatingOrbs />
+    <GlowTrail />
 
       <div className="container">
         <h1 className="title">Resonance Base</h1>
