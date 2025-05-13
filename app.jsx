@@ -12,6 +12,7 @@ import PhaseEchoes from "./PhaseEchoes";
 import useBreathRhythm from './useBreathRhythm';
 import './CoherenceBreath.css';
 import CoreHarmonics from './CoreHarmonics';
+import SelfEchoes from './SelfEchoes';
 
 function App() {
  const breathDuration = useBreathRhythm();
@@ -92,7 +93,7 @@ useEffect(() => {
 }}
 
 >
-
+    <SelfEchoes />   
     <CoreHarmonics />
     <FieldDistortion />
     <PhaseEchoes />        
