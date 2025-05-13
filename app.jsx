@@ -81,14 +81,15 @@ useEffect(() => {
   onClick={handleClick}
   className={`background feedback-active coherence-breath resonance-${resonanceLevel}`}
   style={{
-    width: "100vw",
-    height: "100vh",
-    overflow: "hidden",
-    background: "#0a0a0a",
-    cursor: "pointer",
-    position: "relative",
-    animationDuration: `${breathDuration}s`, // 🟢 هنا السحر
-  }}
+  width: "100vw",
+  height: "100vh",
+  overflow: "hidden",
+  background: "#0a0a0a",
+  cursor: "pointer",
+  position: "relative",
+  animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
+}}
+
 >
 
       <FieldDistortion />
