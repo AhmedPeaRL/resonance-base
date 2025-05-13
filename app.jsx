@@ -15,6 +15,7 @@ import CoreHarmonics from './CoreHarmonics';
 import SelfEchoes from './SelfEchoes';
 import FieldBreach from './FieldBreach';
 import ConsciousnessGlimmer from './ConsciousnessGlimmer';
+import SilentIntention from './SilentIntention';
 
 function App() {
  const breathDuration = useBreathRhythm();
@@ -96,6 +97,7 @@ useEffect(() => {
 
 >
     <FieldBreach />
+    <SilentIntention />
     <ConsciousnessGlimmer />
     <SelfEchoes />   
     <CoreHarmonics />
