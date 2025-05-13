@@ -14,13 +14,23 @@ function FieldDistortion() {
   }, []);
 
   return (
-    <div
-      className="distortion-ring"
-      style={{
-        left: `${position.x}px`,
-        top: `${position.y}px`
-      }}
-    ></div>
+    <>
+      <div
+        className="distortion-ring"
+        style={{
+          left: `${position.x}px`,
+          top: `${position.y}px`
+        }}
+      ></div>
+
+      <div
+        className="core-pulse"
+        style={{
+          left: `${position.x}px`,
+          top: `${position.y}px`
+        }}
+      ></div>
+    </>
   );
 }
 
