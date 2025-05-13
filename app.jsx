@@ -16,6 +16,7 @@ import SelfEchoes from './SelfEchoes';
 import FieldBreach from './FieldBreach';
 import ConsciousnessGlimmer from './ConsciousnessGlimmer';
 import SilentIntention from './SilentIntention';
+import AlignmentShift from './AlignmentShift';
 
 function App() {
  const breathDuration = useBreathRhythm();
@@ -29,6 +30,28 @@ useEffect(() => {
       Math.floor((e.clientX / window.innerWidth) * 5)
     );
     setResonanceLevel(intensity);
+const [stillnessFactor, setStillnessFactor] = useState(0);
+
+useEffect(() => {
+  let lastMove = Date.now();
+
+  const updateStillness = () => {
+    const now = Date.now();
+    const delta = (now - lastMove) / 5000; // normalize over 5s
+    setStillnessFactor(Math.min(delta, 1));
+    lastMove = now;
+  };
+
+  const resetStillness = () => lastMove = Date.now();
+
+  const interval = setInterval(updateStillness, 1000);
+  window.addEventListener('mousemove', resetStillness);
+
+  return () => {
+    clearInterval(interval);
+    window.removeEventListener('mousemove', resetStillness);
+  };
+}, []);
 
     // Particle Effect
     const particle = document.createElement("div");
