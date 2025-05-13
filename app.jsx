@@ -6,6 +6,7 @@ import "./PulseEffect.css";
 import "./EchoParticles.css";
 import "./FeedbackResonance.css";
 import { useRef } from "react";
+import "./BreathingLoop.css";
 
 function App() {
   const [resonanceLevel, setResonanceLevel] = useState(0);
@@ -73,7 +74,7 @@ useEffect(() => {
     <div
   ref={bgRef}
   onClick={handleClick}
-  className={`background feedback-active resonance-${resonanceLevel}`}
+  className={`background feedback-active breathing resonance-${resonanceLevel}`}
   style={{
     width: "100vw",
     height: "100vh",
