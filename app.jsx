@@ -4,32 +4,49 @@ import GlowTrail from "./GlowTrail";
 import "./App.css";
 import "./PulseEffect.css";
 import "./EchoParticles.css";
+import "./FeedbackResonance.css";
+import { useRef } from "react";
 
 function App() {
   const [resonanceLevel, setResonanceLevel] = useState(0);
+const bgRef = useRef(null);
 
-  useEffect(() => {
-    const handleMouseMove = (e) => {
-      const intensity = Math.min(
-        4,
-        Math.floor((e.clientX / window.innerWidth) * 5)
-      );
-      setResonanceLevel(intensity);
+useEffect(() => {
+  const handleMouseMove = (e) => {
+    const intensity = Math.min(
+      4,
+      Math.floor((e.clientX / window.innerWidth) * 5)
+    );
+    setResonanceLevel(intensity);
 
-      // === Echo Particle Effect ===
-      const particle = document.createElement("div");
-      particle.className = "particle";
-      particle.style.left = `${e.clientX + (Math.random() * 40 - 20)}px`;
-      particle.style.top = `${e.clientY + (Math.random() * 40 - 20)}px`;
-      document.body.appendChild(particle);
-      setTimeout(() => {
-        particle.remove();
-      }, 1000);
-    };
+    // Particle Effect
+    const particle = document.createElement("div");
+    particle.className = "particle";
+    particle.style.left = `${e.clientX + (Math.random() * 40 - 20)}px`;
+    particle.style.top = `${e.clientY + (Math.random() * 40 - 20)}px`;
+    document.body.appendChild(particle);
+    setTimeout(() => particle.remove(), 1000);
 
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+    // === Feedback Resonance Effect ===
+    if (bgRef.current) {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      const dist = Math.hypot(e.clientX - centerX, e.clientY - centerY);
+
+      const maxDist = Math.hypot(centerX, centerY);
+      const proximity = 1 - dist / maxDist; // 0 (far) to 1 (centered)
+
+      if (proximity > 0.7) {
+        bgRef.current.classList.add("feedback-deep");
+      } else {
+        bgRef.current.classList.remove("feedback-deep");
+      }
+    }
+  };
+
+  window.addEventListener("mousemove", handleMouseMove);
+  return () => window.removeEventListener("mousemove", handleMouseMove);
+}, []);
 
   const handleClick = (e) => {
   const pulse = document.createElement("div");
@@ -54,17 +71,18 @@ function App() {
 
   return (
     <div
-      onClick={handleClick}
-      className={`background resonance-${resonanceLevel}`}
-      style={{
-        width: "100vw",
-        height: "100vh",
-        overflow: "hidden",
-        background: "#0a0a0a",
-        cursor: "pointer",
-        position: "relative",
-      }}
-    >
+  ref={bgRef}
+  onClick={handleClick}
+  className={`background feedback-active resonance-${resonanceLevel}`}
+  style={{
+    width: "100vw",
+    height: "100vh",
+    overflow: "hidden",
+    background: "#0a0a0a",
+    cursor: "pointer",
+    position: "relative",
+  }}
+>
       <FloatingOrbs />
       <GlowTrail />
 
