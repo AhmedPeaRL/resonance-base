@@ -32,21 +32,25 @@ function App() {
   }, []);
 
   const handleClick = (e) => {
-    const pulse = document.createElement("div");
-    pulse.className = "pulse";
-    pulse.style.left = `${e.clientX}px`;
-    pulse.style.top = `${e.clientY}px`;
-    document.body.appendChild(pulse);
+  const pulse = document.createElement("div");
+  pulse.className = "pulse";
+  pulse.style.left = `${e.clientX}px`;
+  pulse.style.top = `${e.clientY}px`;
+  document.body.appendChild(pulse);
 
-    setTimeout(() => {
-      pulse.remove();
-    }, 800);
+  setTimeout(() => {
+    pulse.remove();
+  }, 800);
 
-    // Play Chime on Click
-    const audio = new Audio("/sounds/chime.mp3");
-    audio.volume = 0.3;
-    audio.play().catch((err) => console.log("Audio play error:", err));
-  };
+  // ✅ Play Chime Sound via existing <audio>
+  const chime = document.getElementById("chime-sound");
+  if (chime) {
+    chime.currentTime = 0;
+    chime.volume = 0.3;
+    chime.play().catch(err => console.log("Chime play error:", err));
+  }
+};
+
 
   return (
     <div
