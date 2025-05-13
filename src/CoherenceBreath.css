@@ -1,0 +1,15 @@
+.coherence-breath {
+  animation: breathFlow 6s ease-in-out infinite;
+}
+
+@keyframes breathFlow {
+  0% {
+    filter: brightness(1) blur(0px);
+  }
+  50% {
+    filter: brightness(1.05) blur(2px);
+  }
+  100% {
+    filter: brightness(1) blur(0px);
+  }
+}
