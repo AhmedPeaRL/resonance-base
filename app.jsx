@@ -9,9 +9,12 @@ import { useRef } from "react";
 import "./BreathingLoop.css";
 import FieldDistortion from "./FieldDistortion";
 import PhaseEchoes from "./PhaseEchoes";
+import useBreathRhythm from './useBreathRhythm';
+import './CoherenceBreath.css';
 
 function App() {
-  const [resonanceLevel, setResonanceLevel] = useState(0);
+ const breathDuration = useBreathRhythm();
+ const [resonanceLevel, setResonanceLevel] = useState(0);
 const bgRef = useRef(null);
 
 useEffect(() => {
@@ -73,10 +76,10 @@ useEffect(() => {
 
 
   return (
-    <div
+   <div
   ref={bgRef}
   onClick={handleClick}
-  className={`background feedback-active breathing resonance-${resonanceLevel}`}
+  className={`background feedback-active coherence-breath resonance-${resonanceLevel}`}
   style={{
     width: "100vw",
     height: "100vh",
@@ -84,8 +87,10 @@ useEffect(() => {
     background: "#0a0a0a",
     cursor: "pointer",
     position: "relative",
+    animationDuration: `${breathDuration}s`, // 🟢 هنا السحر
   }}
 >
+
       <FieldDistortion />
       <PhaseEchoes />
       <FloatingOrbs />
