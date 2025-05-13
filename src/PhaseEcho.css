@@ -1,0 +1,24 @@
+.phase-echo {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.4), transparent);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  opacity: 0.4;
+  animation: echoFade 1.2s ease-out forwards;
+  z-index: 5;
+  filter: blur(2px);
+}
+
+@keyframes echoFade {
+  from {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.4;
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1.5);
+    opacity: 0;
+  }
+}
