@@ -47,6 +47,16 @@ body, html {
   }
 }
 
+.dynamic-glow {
+  animation: dynamicGlow 8s ease-in-out infinite;
+}
+
+@keyframes dynamicGlow {
+  0% { filter: drop-shadow(0 0 10px rgba(0,255,255,0.2)); }
+  50% { filter: drop-shadow(0 0 30px rgba(0,255,255,0.4)); }
+  100% { filter: drop-shadow(0 0 10px rgba(0,255,255,0.2)); }
+}
+ 
 .container {
   position: relative;
   z-index: 2;
