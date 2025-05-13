@@ -8,6 +8,7 @@ import "./FeedbackResonance.css";
 import { useRef } from "react";
 import "./BreathingLoop.css";
 import FieldDistortion from "./FieldDistortion";
+import PhaseEchoes from "./PhaseEchoes";
 
 function App() {
   const [resonanceLevel, setResonanceLevel] = useState(0);
@@ -85,8 +86,9 @@ useEffect(() => {
     position: "relative",
   }}
 >
-     <FieldDistortion />
- <FloatingOrbs />
+      <FieldDistortion />
+      <PhaseEchoes />
+      <FloatingOrbs />
       <GlowTrail />
 
       <div className="container">
