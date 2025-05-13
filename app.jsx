@@ -98,8 +98,13 @@ useEffect(() => {
     <PhaseEchoes />        
     <FloatingOrbs />
     <GlowTrail />
-
-      <div className="container">
+     
+<div className={`container dynamic-glow`}>
+  <h1 className="title">Resonance Base</h1>
+  <p className="subtitle">
+    Let your presence shape the space — harmonize in real-time.
+  </p>
+<div className="container">
         <h1 className="title">Resonance Base</h1>
         <p className="subtitle">
           Let your presence shape the space — harmonize in real-time.
