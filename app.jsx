@@ -119,6 +119,7 @@ useEffect(() => {
 }}
 
 >
+    <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
     <FieldBreach />
     <SilentIntention />
     <ConsciousnessGlimmer />
