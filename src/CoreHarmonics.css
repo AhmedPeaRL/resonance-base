@@ -2,23 +2,23 @@
   animation: corePulse 12s ease-in-out infinite;
   mix-blend-mode: lighten;
   filter: blur(1.5px);
-  opacity: 0.1;
+  opacity: clamp(0.05, 0.1, 0.15);
 }
 
 @keyframes corePulse {
   0% {
     transform: scale(1);
     filter: brightness(1) blur(1.5px);
-    opacity: 0.08;
+    opacity: clamp(0.05, 0.1, 0.15);
   }
   50% {
     transform: scale(1.02);
     filter: brightness(1.03) blur(2.5px);
-    opacity: 0.15;
+    opacity: clamp(0.05, 0.1, 0.15);
   }
   100% {
     transform: scale(1);
     filter: brightness(1) blur(1.5px);
-    opacity: 0.08;
+    opacity: clamp(0.05, 0.1, 0.15);
   }
 }
