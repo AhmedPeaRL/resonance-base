@@ -17,6 +17,8 @@ import HarmonicBinding from "./HarmonicBinding";
 import "./HarmonicBinding.css";
 import PhaseLocking from "./PhaseLocking";
 import "./PhaseLocking.css";
+import PresenceImprint from "./PresenceImprint";
+import "./PresenceImprint.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -133,7 +135,11 @@ function App() {
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-
+     <PresenceImprint
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
+ 
       {/* 🟢 همسة التشافي */}
       {stillnessFactor >= 0.9 && <WhisperFlow />}
 
