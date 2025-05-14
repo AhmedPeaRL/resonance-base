@@ -15,6 +15,8 @@ import CoreSynchrony from "./CoreSynchrony";
 import "./CoreSynchrony.css";
 import HarmonicBinding from "./HarmonicBinding";
 import "./HarmonicBinding.css";
+import PhaseLocking from "./PhaseLocking";
+import "./PhaseLocking.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -127,6 +129,10 @@ function App() {
       <PhaseEchoes />
       <FloatingOrbs />
       <GlowTrail />
+      <PhaseLocking
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
 
       {/* 🟢 همسة التشافي */}
       {stillnessFactor >= 0.9 && <WhisperFlow />}
