@@ -23,6 +23,8 @@ import FieldMemory from "./FieldMemory";
 import "./FieldMemory.css";
 import FieldConsciousness from "./FieldConsciousness";
 import "./FieldConsciousness.css";
+import PhaseSelfReflection from "./PhaseSelfReflection";
+import "./PhaseSelfReflection.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -148,6 +150,10 @@ function App() {
   stillnessFactor={stillnessFactor}
 />
     <FieldConsciousness
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
+    <PhaseSelfReflection
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
