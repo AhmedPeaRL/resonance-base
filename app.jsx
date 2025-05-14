@@ -27,6 +27,7 @@ import PhaseSelfReflection from "./PhaseSelfReflection";
 import "./PhaseSelfReflection.css";
 import FieldAura from "./FieldAura";
 import "./FieldAura.css";
+import SelfMemoryLoop from "./SelfMemoryLoop";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -160,6 +161,10 @@ function App() {
     <PhaseSelfReflection
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
+/>
+    <SelfMemoryLoop
+  stillnessFactor={stillnessFactor}
+  resonanceLevel={resonanceLevel}
 />
 
       {/* 🟢 همسة التشافي */}
