@@ -19,6 +19,8 @@ import PhaseLocking from "./PhaseLocking";
 import "./PhaseLocking.css";
 import PresenceImprint from "./PresenceImprint";
 import "./PresenceImprint.css";
+import FieldMemory from "./FieldMemory";
+import "./FieldMemory.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -139,7 +141,11 @@ function App() {
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
- 
+    <FieldMemory
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
+
       {/* 🟢 همسة التشافي */}
       {stillnessFactor >= 0.9 && <WhisperFlow />}
 
