@@ -25,6 +25,8 @@ import FieldConsciousness from "./FieldConsciousness";
 import "./FieldConsciousness.css";
 import PhaseSelfReflection from "./PhaseSelfReflection";
 import "./PhaseSelfReflection.css";
+import FieldAura from "./FieldAura";
+import "./FieldAura.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -137,6 +139,7 @@ function App() {
       <PhaseEchoes />
       <FloatingOrbs />
       <GlowTrail />
+      <FieldAura resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <PhaseLocking
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
