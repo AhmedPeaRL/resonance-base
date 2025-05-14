@@ -21,6 +21,8 @@ import PresenceImprint from "./PresenceImprint";
 import "./PresenceImprint.css";
 import FieldMemory from "./FieldMemory";
 import "./FieldMemory.css";
+import FieldConsciousness from "./FieldConsciousness";
+import "./FieldConsciousness.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -142,6 +144,10 @@ function App() {
   stillnessFactor={stillnessFactor}
 />
     <FieldMemory
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
+    <FieldConsciousness
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
