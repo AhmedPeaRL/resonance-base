@@ -34,6 +34,7 @@ import "./EchoParticles.css";
 import "./FeedbackResonance.css";
 import "./BreathingLoop.css";
 import "./CoherenceBreath.css";
+import HoloLoop from "./HoloLoop";
 
 function App() {
   const breathDuration = useBreathRhythm();
@@ -163,6 +164,7 @@ function App() {
 
       {/* 🟢 همسة التشافي */}
       {stillnessFactor >= 0.9 && <WhisperFlow />}
+    <HoloLoop stillnessFactor={stillnessFactor} />
 
       <div className="container dynamic-glow">
         <h1 className="title">Resonance Base</h1>
