@@ -11,6 +11,8 @@ import SilentIntention from "./SilentIntention";
 import AlignmentShift from "./AlignmentShift";
 import WhisperFlow from "./WhisperFlow";
 import useBreathRhythm from "./useBreathRhythm";
+import CoreSynchrony from "./CoreSynchrony";
+import "./CoreSynchrony.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -105,7 +107,11 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
-      <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
+     <CoreSynchrony
+  proximity={resonanceLevel / 4}
+  stillnessFactor={stillnessFactor}
+/>
+ <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
       <FieldBreach />
       <SilentIntention />
       <ConsciousnessGlimmer />
