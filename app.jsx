@@ -13,6 +13,8 @@ import WhisperFlow from "./WhisperFlow";
 import useBreathRhythm from "./useBreathRhythm";
 import CoreSynchrony from "./CoreSynchrony";
 import "./CoreSynchrony.css";
+import HarmonicBinding from "./HarmonicBinding";
+import "./HarmonicBinding.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -107,7 +109,11 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
-     <CoreSynchrony
+    <HarmonicBinding
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
+ <CoreSynchrony
   proximity={resonanceLevel / 4}
   stillnessFactor={stillnessFactor}
 />
