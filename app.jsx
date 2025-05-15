@@ -33,6 +33,7 @@ import PrimalFlow from "./PrimalFlow";
 import HarmonicConvergence from "./HarmonicConvergence";
 import HoloLoop from "./HoloLoop";
 import PresencePulse from "./PresencePulse";
+import SourceStream from "./SourceStream";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -52,6 +53,7 @@ import "./SourceBreathSync.css";
 import "./PrimalFlow.css";
 import "./HarmonicConvergence.css";
 import "./PresencePulse.css";
+import "./SourceStream.css";
 
 function App() {
   const breathDuration = useBreathRhythm();
@@ -153,6 +155,10 @@ function App() {
       <ConsciousnessFeedbackLoop resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <SynchronyVeil resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
+      <SourceStream
+    resonanceLevel={resonanceLevel}
+    breathDuration={breathDuration}
+  />
       <FieldBreach />
       <FieldMemoryLoop resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <SilentIntention />
