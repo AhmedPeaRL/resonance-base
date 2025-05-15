@@ -38,6 +38,8 @@ import SourceAlignment from "./SourceAlignment";
 import PresenceInfusion from "./PresenceInfusion";
 import SourceBreathSync from "./SourceBreathSync";
 import "./SourceBreathSync.css";
+import PrimalFlow from "./PrimalFlow";
+import "./PrimalFlow.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -137,7 +139,11 @@ function App() {
   breathDuration={breathDuration}
   stillnessFactor={stillnessFactor}
 />
-     <CoreFieldPulse
+    <PrimalFlow
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
+    <CoreFieldPulse
   breathDuration={breathDuration}
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
