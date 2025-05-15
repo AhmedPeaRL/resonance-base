@@ -29,6 +29,7 @@ import FieldAura from "./FieldAura";
 import "./FieldAura.css";
 import SelfMemoryLoop from "./SelfMemoryLoop";
 import FieldConsciousnessFeedback from "./FieldConsciousnessFeedback";
+import FieldMemoryLoop from "./FieldMemoryLoop";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -134,7 +135,10 @@ function App() {
 />
  <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
       <FieldBreach />
-      <SilentIntention />
+      <FieldMemoryLoop
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>    <SilentIntention />
       <ConsciousnessGlimmer />
       <SelfEchoes />
       <FieldDistortion />
