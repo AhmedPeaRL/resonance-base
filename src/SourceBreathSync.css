@@ -1,0 +1,27 @@
+.source-breath-sync {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(0, 255, 200, 0.1), transparent);
+  pointer-events: none;
+  animation: breathSync 8s ease-in-out infinite;
+  filter: blur(60px);
+  z-index: 0;
+}
+
+@keyframes breathSync {
+  0% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+}
