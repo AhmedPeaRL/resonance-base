@@ -1,14 +1,17 @@
 .presence-imprint {
   position: absolute;
-  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(0,255,200,0.4), transparent);
+  background: radial-gradient(circle, rgba(255,255,255,0.1), transparent);
+  mix-blend-mode: color-dodge;
   pointer-events: none;
-  animation: imprintFade 3s ease-out forwards;
-  z-index: 0;
+  filter: blur(15px);
+  animation: imprintPulse 3s infinite ease-in-out;
 }
 
-@keyframes imprintFade {
-  0% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
-  100% { opacity: 0; transform: translate(-50%, -50%) scale(1.5); }
+@keyframes imprintPulse {
+  0% { transform: scale(0.9); opacity: 0.3; }
+  50% { transform: scale(1.1); opacity: 0.6; }
+  100% { transform: scale(0.9); opacity: 0.3; }
 }
