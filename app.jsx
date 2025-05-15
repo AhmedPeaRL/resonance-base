@@ -42,6 +42,8 @@ import PrimalFlow from "./PrimalFlow";
 import "./PrimalFlow.css";
 import HarmonicConvergence from "./HarmonicConvergence";
 import "./HarmonicConvergence.css";
+import PresencePulse from "./PresencePulse";
+import "./PresencePulse.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -154,7 +156,10 @@ function App() {
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-
+    <PresencePulse
+  breathDuration={breathDuration}
+  resonanceLevel={resonanceLevel}
+/>
     <HarmonicBinding
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
