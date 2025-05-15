@@ -30,6 +30,7 @@ import "./FieldAura.css";
 import SelfMemoryLoop from "./SelfMemoryLoop";
 import FieldConsciousnessFeedback from "./FieldConsciousnessFeedback";
 import FieldMemoryLoop from "./FieldMemoryLoop";
+import ConsciousnessFeedbackLoop from "./ConsciousnessFeedbackLoop";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -125,15 +126,19 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
-    <HarmonicBinding
+      <HarmonicBinding
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
- <CoreSynchrony
+      <CoreSynchrony
   proximity={resonanceLevel / 4}
   stillnessFactor={stillnessFactor}
 />
- <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
+      <ConsciousnessFeedbackLoop
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
+   <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
       <FieldBreach />
       <FieldMemoryLoop
   resonanceLevel={resonanceLevel}
