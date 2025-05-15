@@ -147,6 +147,10 @@ function App() {
       <PrimalFlow resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <HarmonicConvergence resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <CoreFieldPulse breathDuration={breathDuration} resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <HarmonicNexus
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
       <HarmonicBinding resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <SourceAlignment resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <CoreSynchrony proximity={resonanceLevel / 4} stillnessFactor={stillnessFactor} />
