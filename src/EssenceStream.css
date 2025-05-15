@@ -1,12 +1,17 @@
-.essence-stream {
+.core-field-pulse {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,255,255,0.3), transparent);
+  mix-blend-mode: color-dodge;
   pointer-events: none;
-  mix-blend-mode: lighten;
-  filter: blur(30px);
-  transition: background 0.5s ease-out;
-  z-index: 0;
+  filter: blur(20px);
+  animation: pulseEffect 4s infinite ease-in-out;
+}
+
+@keyframes pulseEffect {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
 }
