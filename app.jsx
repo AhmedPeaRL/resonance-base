@@ -135,10 +135,6 @@ function App() {
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-     <EssenceStream
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
      <HarmonicBinding
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
@@ -170,6 +166,10 @@ function App() {
       <FieldDistortion />
       <PhaseEchoes />
       <PresenceInfusion
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
+      <EssenceStream
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
