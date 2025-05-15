@@ -1,41 +1,27 @@
 import React, { useEffect, useState } from "react";
 import "./EssenceStream.css";
 
-const EssenceStream = ({ resonanceLevel, stillnessFactor }) => {
-  const [streams, setStreams] = useState([]);
+const EssenceStream = ({ resonanceLevel, breathDuration }) => {
+  const [flowPhase, setFlowPhase] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      const stream = {
-        id: Date.now(),
-        scale: 0.8 + resonanceLevel * 0.1 + stillnessFactor * 0.5,
-        opacity: 0.3 + stillnessFactor * 0.4,
-        x: window.innerWidth / 2 + (Math.random() * 200 - 100),
-        y: window.innerHeight / 2 + (Math.random() * 200 - 100),
-        hue: Math.floor(180 + resonanceLevel * 30 + stillnessFactor * 60),
-      };
-      setStreams((prev) => [...prev.slice(-12), stream]);
-    }, 1800 - stillnessFactor * 1200);
+      setFlowPhase((prev) => (prev + 1) % 100);
+    }, breathDuration * 100);
 
     return () => clearInterval(interval);
-  }, [resonanceLevel, stillnessFactor]);
+  }, [breathDuration]);
+
+  const opacity = 0.05 + resonanceLevel * 0.1;
+  const gradientPos = `${flowPhase}%`;
 
   return (
-    <>
-      {streams.map((s) => (
-        <div
-          key={s.id}
-          className="essence-stream"
-          style={{
-            left: `${s.x}px`,
-            top: `${s.y}px`,
-            transform: `scale(${s.scale})`,
-            opacity: s.opacity,
-            filter: `hue-rotate(${s.hue}deg)`,
-          }}
-        />
-      ))}
-    </>
+    <div
+      className="essence-stream"
+      style={{
+        background: `radial-gradient(circle at ${gradientPos} center, rgba(0, 255, 200, ${opacity}), transparent 60%)`,
+      }}
+    />
   );
 };
 
