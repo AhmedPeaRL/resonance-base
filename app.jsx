@@ -34,6 +34,7 @@ import ConsciousnessFeedbackLoop from "./ConsciousnessFeedbackLoop";
 import SynchronyVeil from "./SynchronyVeil";
 import EssenceStream from "./EssenceStream";
 import CoreFieldPulse from "./CoreFieldPulse";
+import SourceAlignment from "./SourceAlignment";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -129,6 +130,10 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
+     <SourceAlignment
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
      <CoreFieldPulse
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
