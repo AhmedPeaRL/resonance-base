@@ -1,0 +1,13 @@
+.source-alignment {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200vw;
+  height: 200vh;
+  transform-origin: center;
+  pointer-events: none;
+  z-index: -1;
+  transition: background 0.3s ease-out;
+  mix-blend-mode: lighten;
+  filter: blur(60px);
+}
