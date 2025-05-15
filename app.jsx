@@ -130,10 +130,6 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
-     <SourceAlignment
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
      <CoreFieldPulse
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
@@ -146,6 +142,10 @@ function App() {
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
+     <SourceAlignment
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
       <CoreSynchrony
   proximity={resonanceLevel / 4}
   stillnessFactor={stillnessFactor}
@@ -154,7 +154,7 @@ function App() {
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-    <SynchronyVeil
+     <SynchronyVeil
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
