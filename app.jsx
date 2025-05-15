@@ -56,7 +56,16 @@ import "./PresencePulse.css";
 import "./SourceStream.css";
 
 function App() {
-  const breathDuration = useBreathRhythm();
+  const isLowEndDevice = navigator.deviceMemory && navigator.deviceMemory < 4;
+
+return (
+  <>
+    { !isLowEndDevice && <FieldAura /> }
+    { !isLowEndDevice && <EssenceStream /> }
+    <CoreFieldPulse />
+  </>
+);
+const breathDuration = useBreathRhythm();
   const [resonanceLevel, setResonanceLevel] = useState(0);
   const [stillnessFactor, setStillnessFactor] = useState(0);
   const bgRef = useRef(null);
