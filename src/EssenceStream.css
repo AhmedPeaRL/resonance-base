@@ -1,0 +1,24 @@
+.essence-stream {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.25), transparent);
+  pointer-events: none;
+  animation: essenceFlow 5s ease-out forwards;
+  mix-blend-mode: screen;
+  z-index: 3;
+}
+
+@keyframes essenceFlow {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.5);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(3);
+    filter: blur(10px);
+  }
+}
