@@ -1,35 +1,17 @@
 .core-field-pulse {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border-radius: 50%;
   background: radial-gradient(circle, rgba(0,255,255,0.3), transparent);
-  transform: translate(-50%, -50%);
-  animation: corePulse 6s ease-in-out infinite;
+  mix-blend-mode: color-dodge;
   pointer-events: none;
   filter: blur(20px);
-  z-index: 0;
+  animation: pulseEffect 4s infinite ease-in-out;
 }
 
-@keyframes corePulse {
-  0% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.5;
-  }
-  50% {
-    transform: translate(-50%, -50%) scale(1.4);
-    opacity: 0.8;
-  }
-  100% {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 0.5;
-  }
-}
-
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(2.5);
-    filter: blur(8px);
-  }
+@keyframes pulseEffect {
+  0% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
 }
