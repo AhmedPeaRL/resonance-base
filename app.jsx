@@ -132,9 +132,11 @@ function App() {
       }}
     >
      <CoreFieldPulse
+  breathDuration={breathDuration}
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
+
      <HarmonicBinding
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
