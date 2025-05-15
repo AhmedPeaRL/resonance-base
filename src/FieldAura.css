@@ -1,3 +1,12 @@
+.field-aura.low-fps {
+  filter: blur(10px);
+  opacity: 0.3;
+}
+
+.field-aura.critical-fps {
+  display: none;
+}
+
 .field-aura {
   position: absolute;
   width: 600px;
