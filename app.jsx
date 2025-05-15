@@ -140,29 +140,33 @@ function App() {
       <FieldDistortion />
       <PhaseEchoes />
       <FloatingOrbs />
+      <FieldConsciousnessFeedback
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
       <GlowTrail />
       <FieldAura resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <PhaseLocking
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-     <PresenceImprint
+      <PresenceImprint
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-    <FieldMemory
+     <FieldMemory
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-    <FieldConsciousness
+     <FieldConsciousness
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-    <PhaseSelfReflection
+     <PhaseSelfReflection
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-    <SelfMemoryLoop
+     <SelfMemoryLoop
   stillnessFactor={stillnessFactor}
   resonanceLevel={resonanceLevel}
 />
