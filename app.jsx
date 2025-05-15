@@ -54,17 +54,22 @@ import "./PrimalFlow.css";
 import "./HarmonicConvergence.css";
 import "./PresencePulse.css";
 import "./SourceStream.css";
+import useFPS from './useFPS';
 
 function App() {
   const isLowEndDevice = navigator.deviceMemory && navigator.deviceMemory < 4;
 
-return (
+  return (
   <>
     { !isLowEndDevice && <FieldAura /> }
     { !isLowEndDevice && <EssenceStream /> }
     <CoreFieldPulse />
   </>
 );
+const fps = useFPS();
+
+  const isLowFPS = fps < 30;
+  const isCriticalFPS = fps < 20;
 const breathDuration = useBreathRhythm();
   const [resonanceLevel, setResonanceLevel] = useState(0);
   const [stillnessFactor, setStillnessFactor] = useState(0);
@@ -160,6 +165,8 @@ const breathDuration = useBreathRhythm();
       <SourceBreathSync breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
       <PrimalFlow resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <HarmonicConvergence resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+       { !isCriticalFPS && <FieldAura /> }
+       { !isLowFPS && <EssenceStream /> }
       <CoreFieldPulse breathDuration={breathDuration} resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <HarmonicNexus
   resonanceLevel={resonanceLevel}
