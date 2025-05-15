@@ -137,7 +137,6 @@ function App() {
       <SilentIntention />
       <ConsciousnessGlimmer />
       <SelfEchoes />
-      <CoreHarmonics />
       <FieldDistortion />
       <PhaseEchoes />
       <FloatingOrbs />
@@ -167,6 +166,7 @@ function App() {
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
+     <CoreHarmonics />
      <SelfMemoryLoop
   stillnessFactor={stillnessFactor}
   resonanceLevel={resonanceLevel}
