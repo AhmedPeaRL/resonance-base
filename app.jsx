@@ -73,7 +73,11 @@ function App() {
       particle.style.left = `${e.clientX + (Math.random() * 40 - 20)}px`;
       particle.style.top = `${e.clientY + (Math.random() * 40 - 20)}px`;
       document.body.appendChild(particle);
-      setTimeout(() => particle.remove(), 1000);
+      requestAnimationFrame(() => {
+  setTimeout(() => {
+    particle.remove();
+  }, 1000);
+});
 
       // Feedback Resonance Proximity
       if (bgRef.current) {
@@ -120,6 +124,7 @@ function App() {
 
     const chime = document.getElementById("chime-sound");
     if (chime) {
+      chime.load();
       chime.currentTime = 0;
       chime.volume = 0.3;
       chime.play().catch((err) => console.log("Chime play error:", err));
