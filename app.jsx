@@ -171,7 +171,7 @@ function App() {
 />
       <EssenceStream
   resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
+  breathDuration={breathDuration}
 />
       <FloatingOrbs />
       <FieldConsciousnessFeedback
