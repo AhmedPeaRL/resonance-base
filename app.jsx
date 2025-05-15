@@ -36,6 +36,8 @@ import EssenceStream from "./EssenceStream";
 import CoreFieldPulse from "./CoreFieldPulse";
 import SourceAlignment from "./SourceAlignment";
 import PresenceInfusion from "./PresenceInfusion";
+import SourceBreathSync from "./SourceBreathSync";
+import "./SourceBreathSync.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -131,6 +133,10 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
+    <SourceBreathSync
+  breathDuration={breathDuration}
+  stillnessFactor={stillnessFactor}
+/>
      <CoreFieldPulse
   breathDuration={breathDuration}
   resonanceLevel={resonanceLevel}
