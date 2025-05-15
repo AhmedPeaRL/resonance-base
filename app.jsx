@@ -32,6 +32,7 @@ import FieldConsciousnessFeedback from "./FieldConsciousnessFeedback";
 import FieldMemoryLoop from "./FieldMemoryLoop";
 import ConsciousnessFeedbackLoop from "./ConsciousnessFeedbackLoop";
 import SynchronyVeil from "./SynchronyVeil";
+import EssenceStream from "./EssenceStream";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -127,6 +128,10 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
+      <EssenceStream
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
       <HarmonicBinding
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
