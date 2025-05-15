@@ -28,6 +28,7 @@ import "./PhaseSelfReflection.css";
 import FieldAura from "./FieldAura";
 import "./FieldAura.css";
 import SelfMemoryLoop from "./SelfMemoryLoop";
+import FieldConsciousnessFeedback from "./FieldConsciousnessFeedback";
 
 import "./App.css";
 import "./PulseEffect.css";
