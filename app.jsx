@@ -40,6 +40,8 @@ import SourceBreathSync from "./SourceBreathSync";
 import "./SourceBreathSync.css";
 import PrimalFlow from "./PrimalFlow";
 import "./PrimalFlow.css";
+import HarmonicConvergence from "./HarmonicConvergence";
+import "./HarmonicConvergence.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -143,13 +145,17 @@ function App() {
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
+    <HarmonicConvergence
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
     <CoreFieldPulse
   breathDuration={breathDuration}
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
 
-     <HarmonicBinding
+    <HarmonicBinding
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
