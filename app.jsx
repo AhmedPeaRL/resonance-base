@@ -31,6 +31,7 @@ import SelfMemoryLoop from "./SelfMemoryLoop";
 import FieldConsciousnessFeedback from "./FieldConsciousnessFeedback";
 import FieldMemoryLoop from "./FieldMemoryLoop";
 import ConsciousnessFeedbackLoop from "./ConsciousnessFeedbackLoop";
+import SynchronyVeil from "./SynchronyVeil";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -138,7 +139,11 @@ function App() {
   resonanceLevel={resonanceLevel}
   stillnessFactor={stillnessFactor}
 />
-   <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
+    <SynchronyVeil
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
+      <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
       <FieldBreach />
       <FieldMemoryLoop
   resonanceLevel={resonanceLevel}
