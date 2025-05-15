@@ -1,0 +1,26 @@
+.core-field-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 255, 200, 0.2);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: fieldPulse 4s ease-out forwards;
+  z-index: 0;
+}
+
+@keyframes fieldPulse {
+  0% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(0.5);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(2.5);
+    filter: blur(8px);
+  }
+}
