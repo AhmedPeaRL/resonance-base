@@ -35,6 +35,7 @@ import SynchronyVeil from "./SynchronyVeil";
 import EssenceStream from "./EssenceStream";
 import CoreFieldPulse from "./CoreFieldPulse";
 import SourceAlignment from "./SourceAlignment";
+import PresenceInfusion from "./PresenceInfusion";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -168,6 +169,10 @@ function App() {
       <SelfEchoes />
       <FieldDistortion />
       <PhaseEchoes />
+      <PresenceInfusion
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+/>
       <FloatingOrbs />
       <FieldConsciousnessFeedback
   resonanceLevel={resonanceLevel}
