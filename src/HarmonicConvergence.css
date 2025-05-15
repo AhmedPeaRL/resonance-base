@@ -1,0 +1,24 @@
+.harmonic-net {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: repeating-radial-gradient(circle, rgba(0,255,255,0.05) 0%, rgba(0,255,255,0.03) 2%, transparent 3%);
+  pointer-events: none;
+  mix-blend-mode: overlay;
+  animation: netDrift 25s linear infinite;
+  z-index: 0;
+}
+
+@keyframes netDrift {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    transform: scale(1.05) rotate(180deg);
+  }
+  100% {
+    transform: scale(1) rotate(360deg);
+  }
+}
