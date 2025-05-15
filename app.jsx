@@ -12,21 +12,13 @@ import AlignmentShift from "./AlignmentShift";
 import WhisperFlow from "./WhisperFlow";
 import useBreathRhythm from "./useBreathRhythm";
 import CoreSynchrony from "./CoreSynchrony";
-import "./CoreSynchrony.css";
 import HarmonicBinding from "./HarmonicBinding";
-import "./HarmonicBinding.css";
 import PhaseLocking from "./PhaseLocking";
-import "./PhaseLocking.css";
 import PresenceImprint from "./PresenceImprint";
-import "./PresenceImprint.css";
 import FieldMemory from "./FieldMemory";
-import "./FieldMemory.css";
 import FieldConsciousness from "./FieldConsciousness";
-import "./FieldConsciousness.css";
 import PhaseSelfReflection from "./PhaseSelfReflection";
-import "./PhaseSelfReflection.css";
 import FieldAura from "./FieldAura";
-import "./FieldAura.css";
 import SelfMemoryLoop from "./SelfMemoryLoop";
 import FieldConsciousnessFeedback from "./FieldConsciousnessFeedback";
 import FieldMemoryLoop from "./FieldMemoryLoop";
@@ -37,13 +29,10 @@ import CoreFieldPulse from "./CoreFieldPulse";
 import SourceAlignment from "./SourceAlignment";
 import PresenceInfusion from "./PresenceInfusion";
 import SourceBreathSync from "./SourceBreathSync";
-import "./SourceBreathSync.css";
 import PrimalFlow from "./PrimalFlow";
-import "./PrimalFlow.css";
 import HarmonicConvergence from "./HarmonicConvergence";
-import "./HarmonicConvergence.css";
+import HoloLoop from "./HoloLoop";
 import PresencePulse from "./PresencePulse";
-import "./PresencePulse.css";
 
 import "./App.css";
 import "./PulseEffect.css";
@@ -51,7 +40,18 @@ import "./EchoParticles.css";
 import "./FeedbackResonance.css";
 import "./BreathingLoop.css";
 import "./CoherenceBreath.css";
-import HoloLoop from "./HoloLoop";
+import "./CoreSynchrony.css";
+import "./HarmonicBinding.css";
+import "./PhaseLocking.css";
+import "./PresenceImprint.css";
+import "./FieldMemory.css";
+import "./FieldConsciousness.css";
+import "./PhaseSelfReflection.css";
+import "./FieldAura.css";
+import "./SourceBreathSync.css";
+import "./PrimalFlow.css";
+import "./HarmonicConvergence.css";
+import "./PresencePulse.css";
 
 function App() {
   const breathDuration = useBreathRhythm();
@@ -139,117 +139,55 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
-    <SourceBreathSync
-  breathDuration={breathDuration}
-  stillnessFactor={stillnessFactor}
-/>
-    <PrimalFlow
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-    <HarmonicConvergence
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-    <CoreFieldPulse
-  breathDuration={breathDuration}
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-    <PresencePulse
-  breathDuration={breathDuration}
-  resonanceLevel={resonanceLevel}
-/>
-    <HarmonicBinding
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-     <SourceAlignment
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-      <CoreSynchrony
-  proximity={resonanceLevel / 4}
-  stillnessFactor={stillnessFactor}
-/>
-      <ConsciousnessFeedbackLoop
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-     <SynchronyVeil
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
+      {/* === Core Resonance Layers === */}
+      <PresencePulse breathDuration={breathDuration} resonanceLevel={resonanceLevel} />
+      <SourceBreathSync breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
+      <PrimalFlow resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <HarmonicConvergence resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <CoreFieldPulse breathDuration={breathDuration} resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <HarmonicBinding resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <SourceAlignment resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <CoreSynchrony proximity={resonanceLevel / 4} stillnessFactor={stillnessFactor} />
+
+      {/* === Feedback Layers === */}
+      <ConsciousnessFeedbackLoop resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <SynchronyVeil resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <AlignmentShift breathDuration={breathDuration} stillnessFactor={stillnessFactor} />
       <FieldBreach />
-      <FieldMemoryLoop
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>    <SilentIntention />
+      <FieldMemoryLoop resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <SilentIntention />
       <ConsciousnessGlimmer />
       <SelfEchoes />
       <FieldDistortion />
       <PhaseEchoes />
-      <PresenceInfusion
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-      <EssenceStream
-  resonanceLevel={resonanceLevel}
-  breathDuration={breathDuration}
-/>
-      <FloatingOrbs />
-      <FieldConsciousnessFeedback
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-      <GlowTrail />
+
+      {/* === Imprint & Aura Layers === */}
+      <PresenceInfusion resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <EssenceStream resonanceLevel={resonanceLevel} breathDuration={breathDuration} />
+      <FieldConsciousnessFeedback resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <FieldAura resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
-      <PhaseLocking
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-      <PresenceImprint
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-     <FieldMemory
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-     <FieldConsciousness
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-     <PhaseSelfReflection
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-/>
-     <CoreHarmonics />
-     <SelfMemoryLoop
-  stillnessFactor={stillnessFactor}
-  resonanceLevel={resonanceLevel}
-/>
+      <PhaseLocking resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <PresenceImprint resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <FieldMemory resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <FieldConsciousness resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <PhaseSelfReflection resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <CoreHarmonics />
+      <SelfMemoryLoop resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
 
-      {/* 🟢 همسة التشافي */}
+      {/* === Decorative & Trails === */}
+      <FloatingOrbs />
+      <GlowTrail />
+
+      {/* === Healing Trigger === */}
       {stillnessFactor >= 0.9 && <WhisperFlow />}
-    <HoloLoop stillnessFactor={stillnessFactor} />
+      <HoloLoop stillnessFactor={stillnessFactor} />
 
+      {/* === UI Container === */}
       <div className="container dynamic-glow">
         <h1 className="title">Resonance Base</h1>
-        <p className="subtitle">
-          Let your presence shape the space — harmonize in real-time.
-        </p>
-        <audio
-          id="resonance-audio"
-          src="https://cdn.pixabay.com/audio/2022/03/15/audio_3fd51f929c.mp3"
-          autoPlay
-          loop
-        />
-        <audio
-          id="chime-sound"
-          src="https://cdn.pixabay.com/download/audio/2023/01/30/audio_bf9e49dcbc.mp3?filename=soft-chime-136769.mp3"
-        />
+        <p className="subtitle">Let your presence shape the space — harmonize in real-time.</p>
+        <audio id="resonance-audio" src="https://cdn.pixabay.com/audio/2022/03/15/audio_3fd51f929c.mp3" autoPlay loop />
+        <audio id="chime-sound" src="https://cdn.pixabay.com/download/audio/2023/01/30/audio_bf9e49dcbc.mp3?filename=soft-chime-136769.mp3" />
         <button
           onClick={() => {
             const audio = document.getElementById("resonance-audio");
