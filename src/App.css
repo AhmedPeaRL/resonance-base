@@ -109,3 +109,11 @@ body, html {
   transform-origin: center center;
   filter: blur(3px) brightness(0.9);
 }
+
+.dynamic-blur {
+  filter: blur(1px);
+}
+
+.heavy-blur {
+  filter: blur(2px) brightness(0.9);
+}
