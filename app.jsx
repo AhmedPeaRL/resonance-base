@@ -6,6 +6,12 @@ import GlowTrail from "./GlowTrail";
 import CoreFieldPulse from "./CoreFieldPulse";
 import FieldAura from "./FieldAura";
 import EssenceStream from "./EssenceStream";
+import SelfEchoes from "./SelfEchoes";
+import CoreHarmonics from "./CoreHarmonics";
+import PhaseEchoes from "./PhaseEchoes";
+import FieldDistortion from "./FieldDistortion";
+import ConsciousnessGlimmer from "./ConsciousnessGlimmer";
+import SilentIntention from "./SilentIntention";
 
 import "./App.css";
 
@@ -104,6 +110,12 @@ function App() {
       {frameBudget > 0.5 && <FieldAura />}
       {frameBudget > 0.6 && <EssenceStream />}
       <CoreFieldPulse />
+      <CoreHarmonics />
+      <SelfEchoes />
+      <FieldDistortion />
+      <PhaseEchoes />
+      <ConsciousnessGlimmer />
+      <SilentIntention />
 
       <FloatingOrbs />
       <GlowTrail className={frameBudget < 0.5 ? "heavy-blur" : frameBudget < 0.7 ? "dynamic-blur" : ""} />
