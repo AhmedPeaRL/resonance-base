@@ -97,3 +97,15 @@ body, html {
   background-color: #00ffff;
   color: #000;
 }
+
+.low-res {
+  transform: scale(0.75);
+  transform-origin: center center;
+  filter: blur(2px);
+}
+
+.critical-res {
+  transform: scale(0.6);
+  transform-origin: center center;
+  filter: blur(3px) brightness(0.9);
+}
