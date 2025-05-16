@@ -6,7 +6,6 @@ import GlowTrail from "./GlowTrail";
 import CoreFieldPulse from "./CoreFieldPulse";
 import FieldAura from "./FieldAura";
 import EssenceStream from "./EssenceStream";
-// باقي imports كالمعتاد...
 
 import "./App.css";
 
@@ -20,7 +19,9 @@ function App() {
 
   const isLowFPS = fps < 30;
   const isCriticalFPS = fps < 20;
+  const frameBudget = fps / 60;
 
+  // === Mouse Resonance & Stillness ===
   useEffect(() => {
     let lastMove = Date.now();
 
@@ -80,11 +81,15 @@ function App() {
     }
   };
 
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+
   return (
     <div
       ref={bgRef}
       onClick={handleClick}
-      className={`background feedback-active coherence-breath resonance-${resonanceLevel}`}
+      className={`background feedback-active coherence-breath resonance-${resonanceLevel} ${
+        isCriticalFPS ? "critical-res" : isLowFPS ? "low-res" : ""
+      }`}
       style={{
         width: "100vw",
         height: "100vh",
@@ -95,14 +100,13 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
-      {/* Dynamic Layer Control */}
-      {!isCriticalFPS && <FieldAura />}
-      {!isLowFPS && <EssenceStream />}
+      {/* Layer Priorities Based on Frame Budget */}
+      {frameBudget > 0.5 && <FieldAura />}
+      {frameBudget > 0.6 && <EssenceStream />}
       <CoreFieldPulse />
 
-      {/* ثابتين مهما كان */}
       <FloatingOrbs />
-      <GlowTrail />
+      <GlowTrail className={frameBudget < 0.5 ? "heavy-blur" : frameBudget < 0.7 ? "dynamic-blur" : ""} />
 
       {/* Main UI */}
       <div className="container dynamic-glow">
@@ -133,7 +137,7 @@ function App() {
         </button>
       </div>
 
-      {/* Debug FPS overlay */}
+      {/* FPS Debug */}
       <div style={{ position: 'fixed', bottom: 10, left: 10, color: '#0ff', fontSize: '14px', opacity: 0.7 }}>
         FPS: {fps}
       </div>
