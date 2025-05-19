@@ -6,14 +6,15 @@ import GlowTrail from "./GlowTrail";
 import CoreFieldPulse from "./CoreFieldPulse";
 import FieldAura from "./FieldAura";
 import EssenceStream from "./EssenceStream";
-import SelfEchoes from "./SelfEchoes";
 import CoreHarmonics from "./CoreHarmonics";
-import PhaseEchoes from "./PhaseEchoes";
+import SelfEchoes from "./SelfEchoes";
 import FieldDistortion from "./FieldDistortion";
+import PhaseEchoes from "./PhaseEchoes";
 import ConsciousnessGlimmer from "./ConsciousnessGlimmer";
-import SilentIntention from "./SilentIntention";
 
 import "./App.css";
+import "./HarmonicLayers.css"; // ✅ ضروري
+import "./AdaptiveScale.css";  // ✅ ضروري
 
 function App() {
   const breathDuration = 6;
@@ -22,12 +23,8 @@ function App() {
   const [resonanceLevel, setResonanceLevel] = useState(0);
   const [stillnessFactor, setStillnessFactor] = useState(0);
   const bgRef = useRef(null);
+  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
 
-  const isLowFPS = fps < 30;
-  const isCriticalFPS = fps < 20;
-  const frameBudget = fps / 60;
-
-  // === Mouse Resonance & Stillness ===
   useEffect(() => {
     let lastMove = Date.now();
 
@@ -87,14 +84,12 @@ function App() {
     }
   };
 
-  const isMobile = /Mobi|Android/i.test(navigator.userAgent);
-
   return (
     <div
       ref={bgRef}
       onClick={handleClick}
       className={`background feedback-active coherence-breath resonance-${resonanceLevel} ${
-        isCriticalFPS ? "critical-res" : isLowFPS ? "low-res" : ""
+        fps < 20 ? "critical-res" : fps < 30 ? "low-res" : ""
       }`}
       style={{
         width: "100vw",
@@ -106,19 +101,22 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
-      {/* Layer Priorities Based on Frame Budget */}
-      {frameBudget > 0.5 && <FieldAura />}
-      {frameBudget > 0.6 && <EssenceStream />}
-      <CoreFieldPulse />
-      <CoreHarmonics />
-      <SelfEchoes />
-      <FieldDistortion />
-      <PhaseEchoes />
-      <ConsciousnessGlimmer />
-      <SilentIntention />
+      {/* Layers - Adaptive Harmonic Control */}
+      {!isCriticalFPS && (
+        <FieldAura className="harmonic-layer" />
+      )}
+      {!isMobile && !isLowFPS && (
+        <EssenceStream className="harmonic-layer" />
+      )}
 
+      <CoreFieldPulse />
+      <CoreHarmonics className="harmonic-layer" />
+      <SelfEchoes className="harmonic-layer" />
+      <FieldDistortion className={`harmonic-layer ${fps < 20 ? "heavy-blur" : fps < 30 ? "dynamic-blur" : ""}`} />
+      <PhaseEchoes className="harmonic-layer" />
+      <ConsciousnessGlimmer className="harmonic-layer" />
       <FloatingOrbs />
-      <GlowTrail className={frameBudget < 0.5 ? "heavy-blur" : frameBudget < 0.7 ? "dynamic-blur" : ""} />
+      <GlowTrail className={`harmonic-layer ${fps < 20 ? "heavy-blur" : fps < 30 ? "dynamic-blur" : ""}`} />
 
       {/* Main UI */}
       <div className="container dynamic-glow">
@@ -149,8 +147,8 @@ function App() {
         </button>
       </div>
 
-      {/* FPS Debug */}
-      <div style={{ position: 'fixed', bottom: 10, left: 10, color: '#0ff', fontSize: '14px', opacity: 0.7 }}>
+      {/* Debug FPS overlay */}
+      <div style={{ position: "fixed", bottom: 10, left: 10, color: "#0ff", fontSize: "14px", opacity: 0.7 }}>
         FPS: {fps}
       </div>
     </div>
