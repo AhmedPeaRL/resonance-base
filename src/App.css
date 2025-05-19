@@ -110,6 +110,13 @@ body, html {
   filter: blur(3px) brightness(0.9);
 }
 
+.harmonic-layer {
+  mix-blend-mode: color-dodge;
+  pointer-events: none;
+  will-change: transform, opacity, filter;
+  transition: all 0.3s ease;
+}
+
 .dynamic-blur {
   filter: blur(1px);
 }
