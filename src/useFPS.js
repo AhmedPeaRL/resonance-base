@@ -1,31 +1,27 @@
-import { useState, useEffect } from "react";
+// useFPS.js
+import { useEffect, useState } from "react";
 
-function useFPS() {
+export default function useFPS() {
   const [fps, setFps] = useState(60);
 
   useEffect(() => {
-    let lastTime = performance.now();
-    let frames = 0;
+    let lastFrameTime = performance.now();
+    let frameCount = 0;
 
-    const update = (now) => {
-      frames++;
-      const delta = now - lastTime;
-
-      if (delta >= 1000) {
-        setFps(Math.round((frames * 1000) / delta));
-        frames = 0;
-        lastTime = now;
+    const update = () => {
+      const now = performance.now();
+      frameCount++;
+      if (now - lastFrameTime >= 1000) {
+        setFps(frameCount);
+        frameCount = 0;
+        lastFrameTime = now;
       }
-
       requestAnimationFrame(update);
     };
 
     const id = requestAnimationFrame(update);
-
     return () => cancelAnimationFrame(id);
   }, []);
 
   return fps;
 }
-
-export default useFPS;
