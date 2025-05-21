@@ -118,6 +118,7 @@ function App() {
       <CoreFieldPulse />
       <HarmonicNexus resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} fps={fps} />
       <NeuralBlooming resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
+      <CognitiveFieldEchoes stillnessFactor={stillnessFactor} />
       <CoreHarmonics className="harmonic-layer" />
       <SelfEchoes className="harmonic-layer" />
       <FieldDistortion className={`harmonic-layer ${fps < 20 ? "heavy-blur" : fps < 30 ? "dynamic-blur" : ""}`} />
