@@ -12,11 +12,13 @@ import FieldDistortion from "./FieldDistortion";
 import PhaseEchoes from "./PhaseEchoes";
 import ConsciousnessGlimmer from "./ConsciousnessGlimmer";
 import HarmonicNexus from "./HarmonicNexus";
+import NeuralBlooming from "./NeuralBlooming";
 
 import "./App.css";
 import "./HarmonicLayers.css"; //
 import "./AdaptiveScale.css";  //
 import "./HarmonicNexus.css";
+import "./NeuralBlooming.css";
 function App() {
   const breathDuration = 6;
   const fps = useFPS();
@@ -104,18 +106,15 @@ function App() {
     >
       {/* Layers - Adaptive Harmonic Control */}
       {!isCriticalFPS && (
-        <FieldAura className="harmonic-layer" />
+      <FieldAura className="harmonic-layer" />
       )}
       {!isMobile && !isLowFPS && (
         <EssenceStream className="harmonic-layer" />
       )}
-      <HarmonicNexus
-  resonanceLevel={resonanceLevel}
-  stillnessFactor={stillnessFactor}
-  fps={fps}
-/>
- 
+      
       <CoreFieldPulse />
+      <HarmonicNexus resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} fps={fps} />
+      <NeuralBlooming resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <CoreHarmonics className="harmonic-layer" />
       <SelfEchoes className="harmonic-layer" />
       <FieldDistortion className={`harmonic-layer ${fps < 20 ? "heavy-blur" : fps < 30 ? "dynamic-blur" : ""}`} />
@@ -138,6 +137,7 @@ function App() {
           id="chime-sound"
           src="https://cdn.pixabay.com/download/audio/2023/01/30/audio_bf9e49dcbc.mp3?filename=soft-chime-136769.mp3"
         />
+
         <button
           onClick={() => {
             const audio = document.getElementById("resonance-audio");
