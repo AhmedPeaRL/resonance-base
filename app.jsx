@@ -13,12 +13,15 @@ import PhaseEchoes from "./PhaseEchoes";
 import ConsciousnessGlimmer from "./ConsciousnessGlimmer";
 import HarmonicNexus from "./HarmonicNexus";
 import NeuralBlooming from "./NeuralBlooming";
+import CognitiveFieldEchoes from "./CognitiveFieldEchoes";
 
 import "./App.css";
 import "./HarmonicLayers.css"; //
 import "./AdaptiveScale.css";  //
 import "./HarmonicNexus.css";
 import "./NeuralBlooming.css";
+import "./CognitiveFieldEchoes.css";
+
 function App() {
   const breathDuration = 6;
   const fps = useFPS();
