@@ -11,11 +11,12 @@ import SelfEchoes from "./SelfEchoes";
 import FieldDistortion from "./FieldDistortion";
 import PhaseEchoes from "./PhaseEchoes";
 import ConsciousnessGlimmer from "./ConsciousnessGlimmer";
+import HarmonicNexus from "./HarmonicNexus";
 
 import "./App.css";
-import "./HarmonicLayers.css"; // ✅ ضروري
-import "./AdaptiveScale.css";  // ✅ ضروري
-
+import "./HarmonicLayers.css"; //
+import "./AdaptiveScale.css";  //
+import "./HarmonicNexus.css";
 function App() {
   const breathDuration = 6;
   const fps = useFPS();
@@ -108,7 +109,12 @@ function App() {
       {!isMobile && !isLowFPS && (
         <EssenceStream className="harmonic-layer" />
       )}
-
+      <HarmonicNexus
+  resonanceLevel={resonanceLevel}
+  stillnessFactor={stillnessFactor}
+  fps={fps}
+/>
+ 
       <CoreFieldPulse />
       <CoreHarmonics className="harmonic-layer" />
       <SelfEchoes className="harmonic-layer" />
