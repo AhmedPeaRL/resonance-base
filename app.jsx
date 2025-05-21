@@ -16,8 +16,8 @@ import NeuralBlooming from "./NeuralBlooming";
 import CognitiveFieldEchoes from "./CognitiveFieldEchoes";
 
 import "./App.css";
-import "./HarmonicLayers.css"; //
-import "./AdaptiveScale.css";  //
+import "./HarmonicLayers.css";
+import "./AdaptiveScale.css";
 import "./HarmonicNexus.css";
 import "./NeuralBlooming.css";
 import "./CognitiveFieldEchoes.css";
@@ -30,6 +30,8 @@ function App() {
   const [stillnessFactor, setStillnessFactor] = useState(0);
   const bgRef = useRef(null);
   const isMobile = /Mobi|Android/i.test(navigator.userAgent);
+  const isLowFPS = fps < 30;
+  const isCriticalFPS = fps < 20;
 
   useEffect(() => {
     let lastMove = Date.now();
@@ -53,11 +55,7 @@ function App() {
         const maxDist = Math.hypot(centerX, centerY);
         const proximity = 1 - dist / maxDist;
 
-        if (proximity > 0.7) {
-          bgRef.current.classList.add("feedback-deep");
-        } else {
-          bgRef.current.classList.remove("feedback-deep");
-        }
+        bgRef.current.classList.toggle("feedback-deep", proximity > 0.7);
       }
     };
 
@@ -67,7 +65,6 @@ function App() {
     }, 1000);
 
     window.addEventListener("mousemove", handleMouseMove);
-
     return () => {
       clearInterval(stillnessInterval);
       window.removeEventListener("mousemove", handleMouseMove);
@@ -95,7 +92,7 @@ function App() {
       ref={bgRef}
       onClick={handleClick}
       className={`background feedback-active coherence-breath resonance-${resonanceLevel} ${
-        fps < 20 ? "critical-res" : fps < 30 ? "low-res" : ""
+        isCriticalFPS ? "critical-res" : isLowFPS ? "low-res" : ""
       }`}
       style={{
         width: "100vw",
@@ -107,27 +104,28 @@ function App() {
         animation: `breathFlow ${breathDuration}s ease-in-out infinite`,
       }}
     >
-      {/* Layers - Adaptive Harmonic Control */}
-      {!isCriticalFPS && (
-      <FieldAura className="harmonic-layer" />
-      )}
-      {!isMobile && !isLowFPS && (
-        <EssenceStream className="harmonic-layer" />
-      )}
-      
+      {/* Adaptive Layers */}
+      {!isCriticalFPS && <FieldAura className="harmonic-layer" />}
+      {!isLowFPS && !isMobile && <EssenceStream className="harmonic-layer" />}
       <CoreFieldPulse />
+
+      {/* Harmonic Components */}
       <HarmonicNexus resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} fps={fps} />
       <NeuralBlooming resonanceLevel={resonanceLevel} stillnessFactor={stillnessFactor} />
       <CognitiveFieldEchoes stillnessFactor={stillnessFactor} />
       <CoreHarmonics className="harmonic-layer" />
       <SelfEchoes className="harmonic-layer" />
-      <FieldDistortion className={`harmonic-layer ${fps < 20 ? "heavy-blur" : fps < 30 ? "dynamic-blur" : ""}`} />
+      <FieldDistortion
+        className={`harmonic-layer ${fps < 20 ? "heavy-blur" : fps < 30 ? "dynamic-blur" : ""}`}
+      />
       <PhaseEchoes className="harmonic-layer" />
       <ConsciousnessGlimmer className="harmonic-layer" />
       <FloatingOrbs />
-      <GlowTrail className={`harmonic-layer ${fps < 20 ? "heavy-blur" : fps < 30 ? "dynamic-blur" : ""}`} />
+      <GlowTrail
+        className={`harmonic-layer ${fps < 20 ? "heavy-blur" : fps < 30 ? "dynamic-blur" : ""}`}
+      />
 
-      {/* Main UI */}
+      {/* UI */}
       <div className="container dynamic-glow">
         <h1 className="title">Resonance Base</h1>
         <p className="subtitle">Let your presence shape the space — harmonize in real-time.</p>
@@ -141,7 +139,6 @@ function App() {
           id="chime-sound"
           src="https://cdn.pixabay.com/download/audio/2023/01/30/audio_bf9e49dcbc.mp3?filename=soft-chime-136769.mp3"
         />
-
         <button
           onClick={() => {
             const audio = document.getElementById("resonance-audio");
@@ -157,8 +154,17 @@ function App() {
         </button>
       </div>
 
-      {/* Debug FPS overlay */}
-      <div style={{ position: "fixed", bottom: 10, left: 10, color: "#0ff", fontSize: "14px", opacity: 0.7 }}>
+      {/* FPS Debug */}
+      <div
+        style={{
+          position: "fixed",
+          bottom: 10,
+          left: 10,
+          color: "#0ff",
+          fontSize: "14px",
+          opacity: 0.7,
+        }}
+      >
         FPS: {fps}
       </div>
     </div>
