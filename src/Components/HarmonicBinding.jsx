@@ -1,4 +1,3 @@
-// src/HarmonicBinding.jsx
 import React, { useEffect, useState } from "react";
 import "./HarmonicBinding.css";
 
