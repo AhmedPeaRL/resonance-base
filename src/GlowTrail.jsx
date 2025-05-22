@@ -1,4 +1,3 @@
-// src/GlowTrail.jsx
 import React, { useEffect } from 'react';
 import './GlowTrail.css';
 
