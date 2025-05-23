@@ -1,25 +1,33 @@
-
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import "./FloatingOrbs.css";
 
-const FloatingOrbs = () => {
+const NUM_ORBS = 14;
+
+function FloatingOrbs() {
+  const containerRef = useRef(null);
+
   useEffect(() => {
-    const orbs = document.querySelectorAll(".orb");
-    orbs.forEach((orb, i) => {
-      const duration = 10 + Math.random() * 20;
-      orb.style.animationDuration = `${duration}s`;
-      orb.style.left = `${Math.random() * 100}%`;
-      orb.style.top = `${Math.random() * 100}%`;
-    });
+    const orbs = Array.from(containerRef.current.children);
+    const animate = () => {
+      orbs.forEach((orb, i) => {
+        const speed = 0.5 + i * 0.03;
+        const angle = (Date.now() / 1000) * speed + i;
+        const x = Math.sin(angle) * 20;
+        const y = Math.cos(angle) * 20;
+        orb.style.transform = `translate(${x}px, ${y}px)`;
+      });
+      requestAnimationFrame(animate);
+    };
+    animate();
   }, []);
 
   return (
-    <>
-      {[...Array(7)].map((_, i) => (
-        <div key={i} className="orb" />
+    <div className="floating-orbs-container" ref={containerRef}>
+      {Array.from({ length: NUM_ORBS }).map((_, i) => (
+        <div key={i} className="floating-orb" />
       ))}
-    </>
+    </div>
   );
-};
+}
 
 export default FloatingOrbs;
