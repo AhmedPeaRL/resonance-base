@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import useFPS from "./useFPS";
 
-import FloatingOrbs from "./FloatingOrbs";
+import FloatingOrbs from "./Components/FloatingOrbs";
 import GlowTrail from "./GlowTrail";
 import CoreFieldPulse from "./CoreFieldPulse";
 import FieldAura from "./FieldAura";
@@ -16,6 +16,7 @@ import NeuralBlooming from "./NeuralBlooming";
 import CognitiveFieldEchoes from "./CognitiveFieldEchoes";
 
 import "./App.css";
+import "./styles/FloatingOrbs.css";
 import "./HarmonicLayers.css";
 import "./AdaptiveScale.css";
 import "./HarmonicNexus.css";
