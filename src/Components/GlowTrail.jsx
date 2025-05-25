@@ -1,26 +1,38 @@
 import React, { useEffect } from "react";
-import "./GlowTrail.css";
+import "../styles/GlowTrail.css";
 
-function GlowTrail() {
+let trail = [];
+
+const GlowTrail = () => {
   useEffect(() => {
-    const trail = document.createElement("div");
-    trail.className = "glow-trail";
-    document.body.appendChild(trail);
+    const createDot = (x, y) => {
+      const dot = document.createElement("div");
+      dot.className = "trail";
+      dot.style.left = `${x}px`;
+      dot.style.top = `${y}px`;
+      document.body.appendChild(dot);
+      trail.push(dot);
 
-    const moveTrail = (e) => {
-      trail.style.left = `${e.clientX}px`;
-      trail.style.top = `${e.clientY}px`;
+      if (trail.length > 20) {
+        const oldDot = trail.shift();
+        if (oldDot) oldDot.remove();
+      }
+
+      setTimeout(() => {
+        dot.remove();
+        trail = trail.filter((d) => d !== dot);
+      }, 800);
     };
 
-    window.addEventListener("mousemove", moveTrail);
-
-    return () => {
-      window.removeEventListener("mousemove", moveTrail);
-      trail.remove();
+    const handleMove = (e) => {
+      createDot(e.clientX, e.clientY);
     };
+
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
   }, []);
 
   return null;
-}
+};
 
 export default GlowTrail;
