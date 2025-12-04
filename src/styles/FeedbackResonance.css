@@ -1,9 +1,0 @@
-.feedback-deep {
-  filter: brightness(1.1) blur(2px); /* ✅ خففنا السطوع والblur */
-  transform: scale(1.02);
-}
-
-.feedback-active {
-  filter: brightness(1) blur(0px);
-  transition: filter 0.4s ease, transform 0.4s ease; /* ✅ بطّأنا الانتقال */
-}
